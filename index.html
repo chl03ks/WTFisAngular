@@ -2,12 +2,16 @@
 <html lang="en" ng-app="app"><!-- ng-app -->
 <head>
     <meta charset="UTF-8">
-    <title>What is Angular</title>
+    <title>What is Angular?</title>
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Angular -->
     <script src="bower_components/angular/angular.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-default" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -29,16 +33,22 @@
     </nav>
 
 <div class="container" ng-controller="MyCtrl">
-    <blockquote>
-        <h1>{{author.name}}</h1>
-        <p>{{author.company}}</p>
-        <footer>{{author.title}}</footer>
-    </blockquote>
+    <div class="main">
+        <h1 class="text-center">League of Legends Champions</h1>
+            <div class="champion col-md-4  text-center" ng-repeat="champion in champions">
+                <img class="champion_img" ng-src="champions/{{champion.name}}_0.jpg" alt="">
+                <div class="info">
+                    <h3>{{champion.name}}</h3>
+                    <h5>{{champion.desc}}</h5>
+                </div>
+            </div>
+        </ul>
+    </div>
 </div><!-- container -->
-
+<!-- Libs -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<!-- My Scripts -->
 <script src="js/controllers.js"></script>
 </body>
 </html>
