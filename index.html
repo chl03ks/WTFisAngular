@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app=""><!-- ng-app -->
+<html lang="en" ng-app="app"><!-- ng-app -->
 <head>
     <meta charset="UTF-8">
     <title>What is Angular</title>
@@ -28,12 +28,17 @@
         </div><!-- /.navbar-collapse -->
     </nav>
 
-<div class="container">
-    <input type="text" name="" ng-model="name" id="input" class="form-control" value="" required="required" pattern="" title="">
-    <h2>Hello {{name}}</h2>
+<div class="container" ng-controller="MyCtrl">
+    <blockquote>
+        <h1>{{author.name}}</h1>
+        <p>{{author.company}}</p>
+        <footer>{{author.title}}</footer>
+    </blockquote>
 </div><!-- container -->
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="js/controllers.js"></script>
 </body>
 </html>
