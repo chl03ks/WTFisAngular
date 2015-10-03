@@ -34,6 +34,10 @@
 
 <div class="container" ng-controller="MyCtrl">
     <div class="main">
+        <div class="search-box">
+                <h1 class="text-center">Search Champion</h1>
+                <input type="text" ng-model="search.name" id="input" class="form-control" value="" required="required" placeholder="Search.." title="">
+        </div><!-- search-box -->
         <h1 class="text-center">League of Legends Champions</h1>
             <div class="champion col-md-4  text-center" ng-repeat="champion in champions">
                 <img class="champion_img" ng-src="champions/{{champion.name}}_0.jpg" alt="">
