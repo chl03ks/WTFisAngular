@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app=""><!-- ng-app -->
+<html lang="en" ng-app="app"><!-- ng-app -->
 <head>
     <meta charset="UTF-8">
-    <title>What is Angular</title>
+    <title>What is Angular?</title>
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Angular -->
     <script src="bower_components/angular/angular.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-default" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -28,12 +32,27 @@
         </div><!-- /.navbar-collapse -->
     </nav>
 
-<div class="container">
-    <input type="text" name="" ng-model="name" id="input" class="form-control" value="" required="required" pattern="" title="">
-    <h2>Hello {{name}}</h2>
+<div class="container" ng-controller="MyCtrl">
+    <div class="main">
+        <div class="search-box">
+                <h1 class="text-center">Search Champion</h1>
+                <input type="text" ng-model="search.name" id="input" class="form-control" value="" required="required" placeholder="Search.." title="">
+        </div><!-- search-box -->
+        <h1 class="text-center">League of Legends Champions</h1>
+            <div class="champion col-md-4  text-center" ng-repeat="champion in champions | filter:search">
+                <img class="champion_img" ng-src="champions/{{champion.name}}_0.jpg" alt="">
+                <div class="info">
+                    <h3>{{champion.name}}</h3>
+                    <h5>{{champion.desc}}</h5>
+                </div>
+            </div>
+        </ul>
+    </div>
 </div><!-- container -->
-
+<!-- Libs -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- My Scripts -->
+<script src="js/controllers.js"></script>
 </body>
 </html>
