@@ -37,9 +37,21 @@
         <div class="search-box">
                 <h1 class="text-center">Search Champion</h1>
                 <input type="text" ng-model="search.name" id="input" class="form-control" value="" required="required" placeholder="Search.." title="">
+                <select name="" id="input" class="form-control" ng-model="championOrder" required="required">
+                    <option value="name">Name</option>
+                    <option value="desc">Description</option>
+                </select>
+                <label>
+                    <input type="radio" ng-model="direction" name="direction" checked>
+                    Ascending
+                </label>
+                <label>
+                    <input type="radio" ng-model="direction" name="direction" value="reverse">
+                    Descending
+                </label>
         </div><!-- search-box -->
         <h1 class="text-center">League of Legends Champions</h1>
-            <div class="champion col-md-4  text-center" ng-repeat="champion in champions | filter:search | limitTo: 10">
+            <div class="champion col-md-4  text-center" ng-repeat="champion in champions | filter:search | orderBy:championOrder:direction">
                 <img class="champion_img" ng-src="champions/{{champion.name}}_0.jpg" alt="">
                 <div class="info">
                     <h3>{{champion.name | uppercase}}</h3>
