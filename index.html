@@ -39,11 +39,11 @@
                 <input type="text" ng-model="search.name" id="input" class="form-control" value="" required="required" placeholder="Search.." title="">
         </div><!-- search-box -->
         <h1 class="text-center">League of Legends Champions</h1>
-            <div class="champion col-md-4  text-center" ng-repeat="champion in champions | filter:search">
+            <div class="champion col-md-4  text-center" ng-repeat="champion in champions | filter:search | limitTo: 10">
                 <img class="champion_img" ng-src="champions/{{champion.name}}_0.jpg" alt="">
                 <div class="info">
-                    <h3>{{champion.name}}</h3>
-                    <h5>{{champion.desc}}</h5>
+                    <h3>{{champion.name | uppercase}}</h3>
+                    <h5>{{champion.desc | lowercase}}</h5>
                 </div>
             </div>
         </ul>
